@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TTT_QUAN_TRIController;
+use App\Http\Controllers\LoaiSanPhamController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +21,4 @@ Route::get('/', function () {
 Route::get('/ttt-login', [TTT_QUAN_TRIController::class, 'TttLogin'])->name('ttt-login');
 Route::post('/ttt-login', [TTT_QUAN_TRIController::class, 'TttLoginSubmit'])->name('ttt-login.submit');
 Route::post('/ttt-logout', [TTT_QUAN_TRIController::class, 'TttLogout'])->name('ttt-logout');
-
+Route::resource('loai-san-pham', LoaiSanPhamController::class);
