@@ -14,14 +14,19 @@ class LoaiSanPhamController extends Controller
     }
 
     // Hiển thị form thêm mới
-    public function create()
+    public function tttCreate()
     {
         return view('ttt_loai_san_pham.create');
     }
 
     // Xử lý thêm mới
-    public function store(Request $request)
+    public function tttCreateSubmit(Request $request)
     {
+        $tttLoaiSanPham= new LoaiSanPham;
+        $tttLoaiSanPham ->tttMaLoai= $request ->tttMaLoai;
+        $tttLoaiSanPham ->tttTenLoai= $request ->tttTenLoai;
+        $tttLoaiSanPham ->tttTrangThai= $request ->tttTrangThai;
+        $tttLoaiSanPham ->saves();
         $validatedData = $request->validate([
             'ttt_ten_loai' => 'required|unique:ttt_loai_san_pham|max:255',
             'ttt_mo_ta' => 'nullable',
