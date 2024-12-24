@@ -38,7 +38,7 @@ class TTT_SAN_PHAMTableSeeder extends Seeder
             'tttMaSanPham'=>'sanpham03',
             'tttTenSanPham'=>'cay 4',
             'tttHinhAnh'=> 'anh',
-            'tttSoLuong'=>10260,
+            'tttSoLuong'=>200,
             'tttDonGia'=>40000,
             'tttMaLoai'=>3,
             'tttTrangThai'=>0,
@@ -48,7 +48,7 @@ class TTT_SAN_PHAMTableSeeder extends Seeder
             'tttMaSanPham'=>'sanpham04',
             'tttTenSanPham'=>'cay 5',
             'tttHinhAnh'=> 'anh',
-            'tttSoLuong'=>1010,
+            'tttSoLuong'=>222 ,
             'tttDonGia'=>66000,
             'tttMaLoai'=>4,
             'tttTrangThai'=>0,
@@ -58,24 +58,24 @@ class TTT_SAN_PHAMTableSeeder extends Seeder
             'tttMaSanPham'=>'sanpham05',
             'tttTenSanPham'=>'cay 5',
             'tttHinhAnh'=> 'anh',
-            'tttSoLuong'=>1020,
+            'tttSoLuong'=>123,
             'tttDonGia'=>60000,
             'tttMaLoai'=>5,
             'tttTrangThai'=>0,
         ]);
         
         DB::table("TTT_SAN_PHAM")->insert([
-            'tttMaSanPham'=>'sanpham01',
+            'tttMaSanPham'=>'sanpham06',
             'tttTenSanPham'=>'cay 6',
             'tttHinhAnh'=> 'anh',
-            'tttSoLuong'=>1001,
+            'tttSoLuong'=>111 ,
             'tttDonGia'=>640000,
             'tttMaLoai'=>6,
             'tttTrangThai'=>0,
         ]);
         
         DB::table("TTT_SAN_PHAM")->insert([
-            'tttMaSanPham'=>'sanpham01',
+            'tttMaSanPham'=>'sanpham7',
             'tttTenSanPham'=>'cay 7',
             'tttHinhAnh'=> 'anh',
             'tttSoLuong'=>200,

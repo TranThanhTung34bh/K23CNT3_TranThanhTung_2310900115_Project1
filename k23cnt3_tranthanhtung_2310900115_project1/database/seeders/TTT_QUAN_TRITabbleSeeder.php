@@ -15,12 +15,14 @@ class TTT_QUAN_TRITabbleSeeder extends Seeder
     {
         $tttMatKhau=md5("12345678");
         DB::table('TTT_QUAN_TRI')->INSERT([
-            'tttTaiKhoan'=>'tung@gmail.com',
-            'tttMatKhau'=>0
+            'tttTaiKhoan'=>'tung2@gmail.com',
+            'tttMatKhau'=>0,
+            'tttTrangThai'=>0
         ]);
         DB::table('TTT_QUAN_TRI')->INSERT([
-            'tttTaiKhoan'=>'tung@gmail.com',
-            'tttMatKhau'=>0
+            'tttTaiKhoan'=>'tung3@gmail.com',
+            'tttMatKhau'=>0,
+            'tttTrangThai'=>0
         ]);
     }
 }

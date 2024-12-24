@@ -1,70 +1,96 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\LoaiSanPham;
 use Illuminate\Http\Request;
+use App\Models\LoaiSanPham; // Sử dụng Model LoaiSanPham để thao tác với cơ sở dữ liệu
 
 class LoaiSanPhamController extends Controller
 {
-    // Hiển thị danh sách loại sản phẩm
-    public function index()
+    //admin CRUD
+    // list
+    public function tttList()
     {
-        $loaiSanPhams = LoaiSanPham::all();
-        return view('ttt_loai_san_pham.index', compact('loaiSanPhams'));
+        $tttloaisanphams = LoaiSanPham::all();
+        return view('tttAdmins.LoaiSanPham.TTT_list', ['LoaiSanPham' => $tttloaisanphams]);
     }
 
-    // Hiển thị form thêm mới
+    //create
     public function tttCreate()
     {
-        return view('ttt_loai_san_pham.create');
+        return view('tttAdmins.LoaiSanPham.ttt-create');
     }
 
-    // Xử lý thêm mới
     public function tttCreateSubmit(Request $request)
     {
-        $tttLoaiSanPham= new LoaiSanPham;
-        $tttLoaiSanPham ->tttMaLoai= $request ->tttMaLoai;
-        $tttLoaiSanPham ->tttTenLoai= $request ->tttTenLoai;
-        $tttLoaiSanPham ->tttTrangThai= $request ->tttTrangThai;
-        $tttLoaiSanPham ->saves();
         $validatedData = $request->validate([
-            'ttt_ten_loai' => 'required|unique:ttt_loai_san_pham|max:255',
-            'ttt_mo_ta' => 'nullable',
+            'tttMaLoai' => 'required|unique:LoaiSanPham,tttMaLoai',  // Kiểm tra mã loại không trống và duy nhất
+            'tttTenLoai' => 'required|string|max:255',  // Kiểm tra tên loại không trống và là chuỗi
+            'tttTrangThai' => 'required|in:0,1',  // Trạng thái phải là 0 hoặc 1
         ]);
+        
+        //ghi dữ liệu xuống db
+        $tttloaisanpham = new LoaiSanPham;
+        $tttloaisanpham->tttMaLoai = $request->tttMaLoai;
+        $tttloaisanpham->tttTenLoai = $request->tttTenLoai;
+        $tttloaisanpham->tttTrangThai = $request->tttTrangThai;
 
-        LoaiSanPham::create($validatedData);
-
-        return redirect()->route('loai-san-pham.index')->with('success', 'Thêm mới thành công!');
+        $tttloaisanpham->save();
+        return redirect()->route('tttadims.LoaiSanPham');
     }
 
-    // Hiển thị form chỉnh sửa
-    public function edit($id)
+    public function tttEdit($id)
     {
-        $loaiSanPham = LoaiSanPham::findOrFail($id);
-        return view('ttt_loai_san_pham.edit', compact('loaiSanPham'));
+        // Retrieve the product by the primary key (id)
+        $tttloaisanpham = LoaiSanPham::find($id);
+    
+        // If the product does not exist, redirect with an error message
+        if (!$tttloaisanpham) {
+            return redirect()->route('tttadims.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
+        }
+    
+        // Pass the product data to the edit view
+        return view('tttAdmins.LoaiSanPham.ttt-edit', ['LoaiSanPham' => $tttloaisanpham]);
     }
 
-    // Xử lý cập nhật
-    public function update(Request $request, $id)
+    public function tttEditSubmit(Request $request)
     {
-        $loaiSanPham = LoaiSanPham::findOrFail($id);
-
+        // Validate the form data
         $validatedData = $request->validate([
-            'ttt_ten_loai' => 'required|unique:ttt_loai_san_pham,ttt_ten_loai,' . $id . ',ttt_id|max:255',
-            'ttt_mo_ta' => 'nullable',
+            'tttMaLoai' => 'required|string|max:255|unique:LoaiSanPham,tttMaLoai,' . $request->id,  // Bỏ qua tttMaLoai của bản ghi hiện tại
+            'tttTenLoai' => 'required|string|max:255',   
+            'tttTrangThai' => 'required|in:0,1',  // Validation for tttTrangThai (0 or 1)
         ]);
-
-        $loaiSanPham->update($validatedData);
-
-        return redirect()->route('loai-san-pham.index')->with('success', 'Cập nhật thành công!');
+    
+        // Find the product by id
+        $tttloaisanpham = LoaiSanPham::find($request->id);
+    
+        // Check if the product exists
+        if (!$tttloaisanpham) {
+            return redirect()->route('tttadims.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
+        }
+    
+        // Update the product with validated data
+        $tttloaisanpham->tttMaLoai = $request->tttMaLoai;
+        $tttloaisanpham->tttTenLoai = $request->tttTenLoai;
+        $tttloaisanpham->tttTrangThai = $request->tttTrangThai;
+    
+        // Save the updated product
+        $tttloaisanpham->save();
+    
+        // Redirect back to the list page with a success message
+        return redirect()->route('tttadims.LoaiSanPham')->with('success', 'Cập nhật loại sản phẩm thành công.');
     }
 
-    // Xóa loại sản phẩm
-    public function destroy($id)
+    public function tttGetDetail($id)
     {
-        $loaiSanPham = LoaiSanPham::findOrFail($id);
-        $loaiSanPham->delete();
+        $tttloaisanpham = LoaiSanPham::where('id', $id)->first();
+        return view('tttAdmins.LoaiSanPham.ttt-detail', ['LoaiSanPham' => $tttloaisanpham]);
+    }
 
-        return redirect()->route('loai-san-pham.index')->with('success', 'Xóa thành công!');
+    public function tttDelete($id)
+    {
+        LoaiSanPham::where('id', $id)->delete();
+        return back()->with('loaisanpham_deleted', 'Đã xóa loại sản phẩm thành công!');
     }
 }
