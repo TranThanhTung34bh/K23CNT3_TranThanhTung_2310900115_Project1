@@ -5,7 +5,7 @@
     </li>
     
     <li class="list-group-item">
-        <a href="/ttt-admins/tttloaisanpham">
+        <a href="/ttt-admins/LoaiSanPham">
             Loại Sản Phẩm
         </a>
     </li>

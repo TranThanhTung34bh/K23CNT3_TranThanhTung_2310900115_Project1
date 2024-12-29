@@ -1,4 +1,4 @@
-@extends('_layouts.admins._master')
+@extends('layouts.admins._master')
 @section('title','Danh Sách Loại Sản Phẩm')
 
 @section('content-body')
@@ -7,7 +7,7 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h1>Danh Sách Loại Sản Phẩm</h1>
                 <!-- Nút Thêm Mới -->
-                <a href="{{route('tttAdmins.LoaiSanPham.tttCreate')}}" class="btn btn-success btn-lg">
+                <a href="{{route('ttt-admins.LoaiSanPham.tttCreate')}}" class="btn btn-success btn-lg">
                     <i class="fa-solid fa-plus-circle"></i> Thêm Mới
                 </a>
             </div>
@@ -27,7 +27,7 @@
                     @php
                         $stt = 0;
                     @endphp
-                    @forelse ($tttloaisanpham as $item)
+                    @forelse ($LoaiSanPham as $item)
                         @php
                             $stt++;
                         @endphp
@@ -46,15 +46,15 @@
                                 <!-- Các nút chức năng với icon -->
                                 <div class="btn-group" role="group">
                                     <!-- Xem chi tiết -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/ttt-detail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem">
+                                    <a href="/ttt-admins/ttt-loai-san-pham/tttdetail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem">
                                         <i class="fa-solid fa-eye"></i>
                                     </a>
                                     <!-- Chỉnh sửa -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/ttt-edit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa">
+                                    <a href="/ttt-admins/ttt-loai-san-pham/tttedit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
                                     <!-- Xóa -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/ttt-delete/{{ $item->id }}" class="btn btn-danger btn-sm" 
+                                    <a href="/ttt-admins/ttt-loai-san-pham/tttdelete/{{ $item->id }}" class="btn btn-danger btn-sm" 
                                        onclick="return confirm('Bạn muốn xóa Mã Loại này không? ID: {{ $item->id }}');" title="Xóa">
                                         <i class="fa-regular fa-trash-can"></i>
                                     </a>

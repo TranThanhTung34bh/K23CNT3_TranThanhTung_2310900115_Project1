@@ -44,7 +44,7 @@
                                class="btn btn-primary">
                                 Sửa
                             </a>
-                            <a href="/ttt/loaisanpham/delete/{{$item->MaLSP}}"
+                            <a href="/ttt/loaisanpham/Delete/{{$item->MaLSP}}"
                                class="btn btn-danger"
                                onclick="return confirm('Bạn muốn xóa không?');">
                                 Xóa

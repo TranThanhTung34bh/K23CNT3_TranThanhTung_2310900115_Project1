@@ -9,23 +9,23 @@ class QuanTri extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'ttt_quan_tri';
+    protected $table = 'TTT_quan_tri';
 
     protected $fillable = [
-        'ttt_tai_khoan',
-        'ttt_email',
-        'ttt_mat_khau',
-        'ttt_trang_thai',
+        'TTT_tai_khoan',
+        'TTT_email',
+        'TTT_mat_khau',
+        'TTT_trang_thai',
     ];
 
     protected $hidden = [
-        'ttt_mat_khau',
+        'TTT_mat_khau',
         'remember_token',
     ];
 
     public function getAuthPassword()
     {
-        return $this->ttt_mat_khau;
+        return $this->TTT_mat_khau;
     }
 }
 

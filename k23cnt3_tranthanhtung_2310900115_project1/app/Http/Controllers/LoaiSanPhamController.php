@@ -11,46 +11,46 @@ class LoaiSanPhamController extends Controller
     // list
     public function tttList()
     {
-        $tttloaisanphams = LoaiSanPham::all();
-        return view('tttAdmins.LoaiSanPham.TTT_list', ['LoaiSanPham' => $tttloaisanphams]);
+        $LoaiSanPhams = LoaiSanPham::all();
+        return view('tttAdmins.LoaiSanPham.TTT_list', ['LoaiSanPham' => $LoaiSanPhams]);
     }
 
     //create
     public function tttCreate()
     {
-        return view('tttAdmins.LoaiSanPham.ttt-create');
+        return view('tttAdmins.LoaiSanPham.tttCreate');
     }
 
     public function tttCreateSubmit(Request $request)
     {
         $validatedData = $request->validate([
-            'tttMaLoai' => 'required|unique:LoaiSanPham,tttMaLoai',  // Kiểm tra mã loại không trống và duy nhất
+            'tttMaLoai' => 'required|unique:ttt_loai_san_pham,tttMaLoai',  // Kiểm tra mã loại không trống và duy nhất
             'tttTenLoai' => 'required|string|max:255',  // Kiểm tra tên loại không trống và là chuỗi
             'tttTrangThai' => 'required|in:0,1',  // Trạng thái phải là 0 hoặc 1
         ]);
         
         //ghi dữ liệu xuống db
-        $tttloaisanpham = new LoaiSanPham;
-        $tttloaisanpham->tttMaLoai = $request->tttMaLoai;
-        $tttloaisanpham->tttTenLoai = $request->tttTenLoai;
-        $tttloaisanpham->tttTrangThai = $request->tttTrangThai;
+        $LoaiSanPham = new LoaiSanPham;
+        $LoaiSanPham->tttMaLoai = $request->tttMaLoai;
+        $LoaiSanPham->tttTenLoai = $request->tttTenLoai;
+        $LoaiSanPham->tttTrangThai = $request->tttTrangThai;
 
-        $tttloaisanpham->save();
-        return redirect()->route('tttadims.LoaiSanPham');
+        $LoaiSanPham->save();
+        return redirect()->route('tttadmins.LoaiSanPham');
     }
 
     public function tttEdit($id)
     {
-        // Retrieve the product by the primary key (id)
-        $tttloaisanpham = LoaiSanPham::find($id);
+        // Retrieve the product by the prminary key (id)
+        $LoaiSanPham = LoaiSanPham::find($id);
     
         // If the product does not exist, redirect with an error message
-        if (!$tttloaisanpham) {
-            return redirect()->route('tttadims.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
+        if (!$LoaiSanPham) {
+            return redirect()->route('tttadmins.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
         }
     
         // Pass the product data to the edit view
-        return view('tttAdmins.LoaiSanPham.ttt-edit', ['LoaiSanPham' => $tttloaisanpham]);
+        return view('tttAdmins.LoaiSanPham.tttEdit', ['LoaiSanPham' => $LoaiSanPham]);
     }
 
     public function tttEditSubmit(Request $request)
@@ -63,34 +63,34 @@ class LoaiSanPhamController extends Controller
         ]);
     
         // Find the product by id
-        $tttloaisanpham = LoaiSanPham::find($request->id);
+        $LoaiSanPham = LoaiSanPham::find($request->id);
     
         // Check if the product exists
-        if (!$tttloaisanpham) {
-            return redirect()->route('tttadims.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
+        if (!$LoaiSanPham) {
+            return redirect()->route('tttadmins.LoaiSanPham')->with('error', 'Loại sản phẩm không tồn tại.');
         }
     
         // Update the product with validated data
-        $tttloaisanpham->tttMaLoai = $request->tttMaLoai;
-        $tttloaisanpham->tttTenLoai = $request->tttTenLoai;
-        $tttloaisanpham->tttTrangThai = $request->tttTrangThai;
+        $LoaiSanPham->tttMaLoai = $request->tttMaLoai;
+        $LoaiSanPham->tttTenLoai = $request->tttTenLoai;
+        $LoaiSanPham->tttTrangThai = $request->tttTrangThai;
     
         // Save the updated product
-        $tttloaisanpham->save();
+        $LoaiSanPham->save();
     
         // Redirect back to the list page with a success message
-        return redirect()->route('tttadims.LoaiSanPham')->with('success', 'Cập nhật loại sản phẩm thành công.');
+        return redirect()->route('tttadmins.LoaiSanPham')->with('success', 'Cập nhật loại sản phẩm thành công.');
     }
 
     public function tttGetDetail($id)
     {
-        $tttloaisanpham = LoaiSanPham::where('id', $id)->first();
-        return view('tttAdmins.LoaiSanPham.ttt-detail', ['LoaiSanPham' => $tttloaisanpham]);
+        $LoaiSanPham = LoaiSanPham::where('id', $id)->first();
+        return view('tttAdmins.LoaiSanPham.ttt-detail', ['LoaiSanPham' => $LoaiSanPham]);
     }
 
     public function tttDelete($id)
     {
-        LoaiSanPham::where('id', $id)->delete();
-        return back()->with('loaisanpham_deleted', 'Đã xóa loại sản phẩm thành công!');
+        LoaiSanPham::where('id', $id)->Delete();
+        return back()->with('loaisanpham_Deleted', 'Đã xóa loại sản phẩm thành công!');
     }
 }

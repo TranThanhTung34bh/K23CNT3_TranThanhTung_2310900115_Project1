@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TTT_QUAN_TRIController;
 use App\Http\Controllers\LoaiSanPhamcontroller;
 use App\Http\Controllers\TTT_SAN_PHAMController;
+use App\Models\LoaiSanPham;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,31 +34,34 @@ Route::get('/ttt-admins', function () {
 Route::get('/ttt-admins/danhmuc', function () {
     return view('tttAdmins.tttdanhmuc');
 });
+Route::get('LoaiSanPham/tttCreate', [LoaiSanPhamController::class, 'tttCreate'])->name('ttt-admins.LoaiSanPham.tttCreate');
 
 // Loại Sản Phẩm
 // List
-Route::get('/ttt-admins/tttloaisanpham', [LoaiSanPhamcontroller::class, 'tttList'])->name('tttadmins.tttloaisanpham');
+Route::get('/ttt-admins/LoaiSanPham', [LoaiSanPhamcontroller::class, 'tttList'])->name('tttadmins.LoaiSanPham');
 // create
-Route::get('/ttt-admins/tttloaisanpham/tttcreate', [LoaiSanPhamcontroller::class, 'tttcreate'])->name('tttadmins.tttloaisanpham.tttcreate');
-Route::post('/ttt-admins/tttloaisanpham/tttcreate', [LoaiSanPhamcontroller::class, 'tttcreateSubmit'])->name('tttadmins.tttloaisanpham.tttcreateSubmit');
-// edit
-Route::get('/ttt-admins/tttloaisanpham/tttedit/{id}', [LoaiSanPhamcontroller::class, 'tttedit'])->name('tttadmins.tttloaisanpham.tttedit');
-Route::post('/ttt-admins/tttloaisanpham/tttedit', [LoaiSanPhamcontroller::class, 'ttteditSubmit'])->name('tttadmins.tttloaisanpham.ttteditSubmit');
+Route::get('/ttt-admins/LoaiSanPham/tttCreate', [LoaiSanPhamcontroller::class, 'tttCreate'])->name('tttadmins.LoaiSanPham.tttCreate');
+Route::post('/ttt-admins/LoaiSanPham/tttCreate', [LoaiSanPhamcontroller::class, 'tttCreateSubmit'])->name('tttadmins.LoaiSanPham.tttCreateSubmit');
+Route::get('tttadmins/LoaiSanPham/tttIndex', [LoaiSanPhamController::class, 'index'])->name('tttadmins.LoaiSanPham.tttIndex');
+
+// Edit
+Route::get('/ttt-admins/LoaiSanPham/tttEdit/{id}', [LoaiSanPhamcontroller::class, 'tttEdit'])->name('tttadmins.LoaiSanPham.tttEdit');
+Route::post('/ttt-admins/LoaiSanPham/tttEdit', [LoaiSanPhamcontroller::class, 'tttEditSubmit'])->name('tttadmins.LoaiSanPham.tttEditSubmit');
 // Detail
-Route::get('/ttt-admins/tttloaisanpham/tttdetail/{id}', [LoaiSanPhamcontroller::class, 'tttgetdetail'])->name('tttadmins.tttloaisanpham.tttgetdetail');
-// delete
-Route::get('/ttt-admins/tttloaisanpham/tttdelete/{id}', [LoaiSanPhamcontroller::class, 'tttdelete'])->name('tttadmins.tttloaisanpham.tttdelete');
+Route::get('/ttt-admins/LoaiSanPham/tttDetail/{id}', [LoaiSanPhamcontroller::class, 'tttgetDetail'])->name('tttadmins.LoaiSanPham.tttgetDetail');
+// Delete
+Route::get('/ttt-admins/LoaiSanPham/tttDelete/{id}', [LoaiSanPhamcontroller::class, 'tttDelete'])->name('tttadmins.LoaiSanPham.tttDelete');
 
 // Sản Phẩm
 // List
 Route::get('/ttt-admins/tttsanpham', [TTT_SAN_PHAMController::class, 'tttList'])->name('tttadmins.tttsanpham');
 // create
-Route::get('/ttt-admins/tttsanpham/tttcreate', [TTT_SAN_PHAMController::class, 'tttcreate'])->name('tttadmins.tttsanpham.tttcreate');
-Route::post('/ttt-admins/tttsanpham/tttcreate', [TTT_SAN_PHAMController::class, 'tttcreateSubmit'])->name('tttadmins.tttsanpham.tttreateSubmit');
+Route::get('/ttt-admins/tttsanpham/tttCreate', [TTT_SAN_PHAMController::class, 'tttCreate'])->name('tttadmins.tttsanpham.tttCreate');
+Route::post('/ttt-admins/tttsanpham/tttCreate', [TTT_SAN_PHAMController::class, 'tttCreateSubmit'])->name('tttadmins.tttsanpham.tttreateSubmit');
 // Detail
-Route::get('/ttt-admins/tttsanpham/tttdetail/{id}', [TTT_SAN_PHAMController::class, 'tttDetail'])->name('tttadmins.tttsanpham.tttDetail');
-// edit
-Route::get('/ttt-admins/tttsanpham/tttedit/{id}', [TTT_SAN_PHAMController::class, 'tttedit'])->name('tttadmins.tttsanpham.tttedit');
-Route::post('/ttt-admins/tttsanpham/tttedit/{id}', [TTT_SAN_PHAMController::class, 'ttteditSubmit'])->name('tttadmins.tttsanpham.ttteditSubmit');
-// delete
-Route::get('/ttt-admins/tttsanpham/tttdelete/{id}', [TTT_SAN_PHAMController::class, 'tttdelete'])->name('tttadmins.tttsanpham.tttdelete');
+Route::get('/ttt-admins/tttsanpham/tttDetail/{id}', [TTT_SAN_PHAMController::class, 'tttDetail'])->name('tttadmins.tttsanpham.tttDetail');
+// Edit
+Route::get('/ttt-admins/tttsanpham/tttEdit/{id}', [TTT_SAN_PHAMController::class, 'tttEdit'])->name('tttadmins.tttsanpham.tttEdit');
+Route::post('/ttt-admins/tttsanpham/tttEdit/{id}', [TTT_SAN_PHAMController::class, 'tttEditSubmit'])->name('tttadmins.tttsanpham.tttEditSubmit');
+// Delete
+Route::get('/ttt-admins/tttsanpham/tttDelete/{id}', [TTT_SAN_PHAMController::class, 'tttDelete'])->name('tttadmins.tttsanpham.tttDelete');

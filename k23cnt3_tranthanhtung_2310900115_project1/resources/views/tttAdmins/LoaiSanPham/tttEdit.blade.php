@@ -1,4 +1,4 @@
-@extends('_layouts.admins._master')
+@extends('layouts.admins._master')
 @section('title','Sửa Loại Sản Phẩm')
 
 @section('content-body')

@@ -1,11 +1,11 @@
-@extends('_layouts.admins._master')
+@extends('layouts.admins._master')
 @section('title','Create Loại Sản Phẩm')
     
 @section('content-body')
     <div class="container border">
         <div class="row">
             <div class="col">
-                <form action="{{ route('tttadmins.tttloaisanpham.tttCreateSubmit') }}" method="POST">
+                <form action="{{ route('tttadmins.LoaiSanPham.tttCreateSubmit') }}" method="POST">
                     @csrf
                     <div class="card">
                         <div class="card-header">
@@ -31,11 +31,11 @@
                             <div class="mb-3">
                                 <label for="tttTrangThai" class="form-label">Trạng Thái</label>
                                 <div class="col-sm-10">
-                                    <input type="radio" id="tttTrangThai1" name="tttTrangThai" value="0" checked/>
-                                    <label for="tttTrangThai1"> Hiển Thị</label>
+                                    <input type="radio" id="tttTrangThai" name="tttTrangThai" value="0" checked/>
+                                    <label for="tttTrangThai"> Hiển Thị</label>
                                     &nbsp;
-                                    <input type="radio" id="tttTrangThai0" name="tttTrangThai" value="1"/>
-                                    <label for="tttTrangThai0">Khóa</label>
+                                    <input type="radio" id="tttTrangThai" name="tttTrangThai" value="1"/>
+                                    <label for="tttTrangThai">Khóa</label>
                                 </div>
                                 @error('tttTrangThai')
                                     <span class="text-danger">{{ $message }}</span>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-success">Create</button>
-                            <a href="{{ route('tttadmins.tttloaisanpham.index') }}" class="btn btn-primary">Back</a>
+                            <a href="{{ route('tttadmins.LoaiSanPham.tttIndex') }}" class="btn btn-primary">Back</a>
                         </div>
                     </div>
                 </form>
