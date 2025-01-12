@@ -5,7 +5,7 @@
     <div class="container border">
         <div class="row">
             <div class="col">
-                <form action="{{ route('tttadmins.LoaiSanPham.tttCreateSubmit') }}" method="POST">
+                <form action="{{ route('tttAdmins.LoaiSanPham.tttCreate') }}" method="POST">
                     @csrf
                     <div class="card">
                         <div class="card-header">
@@ -44,7 +44,7 @@
                         </div>
                         <div class="card-footer">
                             <button class="btn btn-success">Create</button>
-                            <a href="{{ route('tttadmins.LoaiSanPham.tttIndex') }}" class="btn btn-primary">Back</a>
+                            <a href="{{ route('tttAdmins.LoaiSanPham') }}" class="btn btn-primary">Back</a>
                         </div>
                     </div>
                 </form>

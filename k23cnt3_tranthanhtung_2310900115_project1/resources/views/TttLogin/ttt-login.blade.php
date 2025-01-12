@@ -101,7 +101,7 @@
     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
         <div class="login-container">
             <h1>Login Quản Trị Hệ Thống</h1>
-            <form action="{{ route('ttt-login.submit') }}" method="POST">
+            <form action="{{ route('admins.tttLoginSubmit') }}" method="POST">
                 @csrf
 
                 <div class="mb-3">

@@ -9,15 +9,15 @@
 <section class="container my-3">
     <div class="card">
         <div class="card-header">
-            <h1>Danh sách loại sản phẩm</h1>
+            <h1>Danh sách sản phẩm</h1>
         </div>
         <div class="card-body">
             <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Mã loại sản phẩm</th>
-                        <th>Tên loại sản phẩm</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
                         <th>Số lượng</th>
                         <th class="text-center">Chức năng</th>
                     </tr>
@@ -26,25 +26,25 @@
                     @php
                     $stt = 0;
                     @endphp
-                    @foreach ($loaiSanPhams as $item)
+                    @foreach ($SanPhams as $item)
                     @php
                     $stt++;
                     @endphp
                     <tr>
                         <th>{{$stt}}</th>
-                        <td>{{$item->MaLSP}}</td>
-                        <td>{{$item->TenLSP}}</td>
+                        <td>{{$item->MaSP}}</td>
+                        <td>{{$item->TenSP}}</td>
                         <td>{{$item->SoLuong}}</td>
                         <td class="text-center">
-                            <a href="/ttt/LoaiSanPham/Detail/{{$item->MaLSP}}"
+                            <a href="/ttt/ttt_SanPham/Detail/{{$item->MaLSP}}"
                                class="btn btn-success">
                                 Chi tiết
                             </a>
-                            <a href="/ttt/LoaiSanPham/Edit/{{$item->MaLSP}}"
+                            <a href="/ttt/ttt_SanPham/Edit/{{$item->MaLSP}}"
                                class="btn btn-primary">
                                 Sửa
                             </a>
-                            <a href="/ttt/LoaiSanPham/Delete/{{$item->MaLSP}}"
+                            <a href="/ttt/ttt_SanPham/Delete/{{$item->MaLSP}}"
                                class="btn btn-danger"
                                onclick="return confirm('Bạn muốn xóa không?');">
                                 Xóa

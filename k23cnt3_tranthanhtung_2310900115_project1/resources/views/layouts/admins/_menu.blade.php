@@ -5,13 +5,13 @@
     </li>
     
     <li class="list-group-item">
-        <a href="/ttt-admins/LoaiSanPham">
+        <a href="/tttAdmins/LoaiSanPham">
             Loại Sản Phẩm
         </a>
     </li>
    
     <li class="list-group-item">
-        <a href="/ttt-admins/tttsanpham">    
+        <a href="/tttAdmins/ttt_SanPham">    
             Sản Phẩm
         </a>
     </li>

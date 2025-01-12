@@ -1,11 +1,11 @@
-@extends('_layouts.admins._master')
+@extends('layouts.admins._master')
 @section('title','Create Sản Phẩm')
     
 @section('content-body')
     <div class="container border">
         <div class="row">
             <div class="col">
-                <form action="{{route('tttadmin.tttsanpham.tttCreateSubmit')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('tttAdmins.ttt_SanPham.tttCreateSubmit')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card">
                         <div class="card-header">
@@ -54,9 +54,9 @@
                             </div>
 
                             <div class="mb-3">
-                                <label for="tttMaLoai" class="form-label">Loại Danh Mục</label>
+                                <label for="tttMaLoai" class="form-label">Loại Danh Muc</label>
                                 <select name="tttMaLoai" id="tttMaLoai" class="form-control">
-                                    @foreach ($tttloaisanpham as $item)
+                                    @foreach ($tttSanPham as $item)
                                         <option value="{{ $item->id }}">{{ $item->tttTenLoai }}</option>
                                     @endforeach
                                 </select>
@@ -80,9 +80,10 @@
                                 @enderror
                             </div>
                         </div>
+                        </div>
                         <div class="card-footer">
                             <button class="btn btn-success">Create</button>
-                            <a href="{{route('tttadims.tttsanpham')}}" class="btn btn-primary"> Back</a>
+                            <a href="{{ route('tttAdmins.ttt_SanPham') }}" class="btn btn-primary">Back</a>
                         </div>
                     </div>
                 </form>

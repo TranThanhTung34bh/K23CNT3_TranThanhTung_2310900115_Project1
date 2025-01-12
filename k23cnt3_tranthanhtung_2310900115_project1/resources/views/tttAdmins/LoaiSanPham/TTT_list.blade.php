@@ -7,7 +7,7 @@
             <div class="col-12 d-flex justify-content-between align-items-center">
                 <h1>Danh Sách Loại Sản Phẩm</h1>
                 <!-- Nút Thêm Mới -->
-                <a href="{{route('ttt-admins.LoaiSanPham.tttCreate')}}" class="btn btn-success btn-lg">
+                <a href="{{route('tttAdmins.LoaiSanPham.tttCreate')}}" class="btn btn-success btn-lg">
                     <i class="fa-solid fa-plus-circle"></i> Thêm Mới
                 </a>
             </div>
@@ -46,17 +46,17 @@
                                 <!-- Các nút chức năng với icon -->
                                 <div class="btn-group" role="group">
                                     <!-- Xem chi tiết -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/tttdetail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem">
-                                        <i class="fa-solid fa-eye"></i>
+                                    <a href="/tttAdmins/LoaiSanPham/tttDetail/{{ $item->id }}" class="btn btn-success btn-sm" title="Xem">
+                                       <i class="fa-solid fa-eye"> Xem chi tiết</i>
                                     </a>
                                     <!-- Chỉnh sửa -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/tttedit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa">
-                                        <i class="fa-solid fa-pen"></i>
+                                    <a href="/tttAdmins/LoaiSanPham/tttEdit/{{ $item->id }}" class="btn btn-primary btn-sm" title="Chỉnh sửa">
+                                        <i class="fa-solid fa-pen">Chỉnh sửa</i>
                                     </a>
                                     <!-- Xóa -->
-                                    <a href="/ttt-admins/ttt-loai-san-pham/tttdelete/{{ $item->id }}" class="btn btn-danger btn-sm" 
+                                    <a href="/tttAdmins/LoaiSanPham/tttDelete/{{ $item->id }}" class="btn btn-danger btn-sm" 
                                        onclick="return confirm('Bạn muốn xóa Mã Loại này không? ID: {{ $item->id }}');" title="Xóa">
-                                        <i class="fa-regular fa-trash-can"></i>
+                                        <i class="fa-regular fa-trash-can">Xóa sản phẩm</i>
                                     </a>
                                 </div>
                             </td>

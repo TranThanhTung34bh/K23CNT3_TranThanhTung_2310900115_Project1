@@ -1,5 +1,5 @@
 @extends('layouts.admins._master')
-@section('title','Xem Thông Tin Loại Sản Phẩm')
+@section('title','Xem Thông Tin  Sản Phẩm  ')
     
 @section('content-body')
     <div class="container border">
@@ -7,25 +7,25 @@
             <div class="col">
                 <div class="card">
                     <div class="card-header">
-                        <h1>Chi Tiết Loại Sản Phẩm</h1>
+                        <h1>Chi Tiết Sản Phẩm  </h1>
                     </div>
                     <div class="card-body">
 
                         <p class="card-text">
-                            <b>Mã Loại:</b>
-                            {{$LoaiSanPham->tttMaLoai}}
+                            <b>Mã Sản Phẩm :</b>
+                            {{$SanPham->tttMaSanPham}}
                         </p>
                         <p class="card-text">
-                            <b>Tên Loại:</b>
-                            {{$LoaiSanPham->tttTenLoai}}
+                            <b>Tên Sản Phẩm :</b>
+                            {{$SanPham->tttTenSanPham}}
                         </p>
                         <p class="card-text">
                             <b>Trạng Thái:</b>
-                            {{$LoaiSanPham->tttTrangThai == 0 ? 'Hiển Thị' : 'Khóa'}}
+                            {{$SanPham->tttTrangThai == 0 ? 'Hiển Thị' : 'Khóa'}}
                         </p>
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('tttAdmins.LoaiSanPham')}}" class="btn btn-primary">Back</a>
+                        <a href="{{route('tttAdmins.ttt_SanPham')}}" class="btn btn-primary">Back</a>
                     </div>
                 </div>
             </div>
