@@ -56,7 +56,7 @@
                                     <!-- Xóa -->
                                     <a href="/tttAdmins/LoaiSanPham/tttDelete/{{ $item->id }}" class="btn btn-danger btn-sm" 
                                        onclick="return confirm('Bạn muốn xóa Mã Loại này không? ID: {{ $item->id }}');" title="Xóa">
-                                        <i class="fa-regular fa-trash-can">Xóa sản phẩm</i>
+                                        <i class="fa-regular fa-trash-can">Xóa</i>
                                     </a>
                                 </div>
                             </td>

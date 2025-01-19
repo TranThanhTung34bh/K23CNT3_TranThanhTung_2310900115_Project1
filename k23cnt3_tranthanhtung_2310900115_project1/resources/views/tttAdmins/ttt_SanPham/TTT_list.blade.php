@@ -39,7 +39,7 @@
                             <td>{{ $item->tttMaSanPham }}</td>
                             <td>{{ $item->tttTenSanPham }}</td>
                             <td>
-                                <img src="{{ $item->tttHinhAnh ?? 'default-image.png' }}" alt="{{ $item->tttTenSanPham }}" width="50">
+                                <img src="{{ $item->tttHinhAnh ?? 'default-image.jpg' }}" alt="{{ $item->tttTenSanPham }}" width="50">
                             </td>
                             <td>{{ $item->tttSoLuong }}</td>
                             <td>{{ number_format($item->tttDonGia, 0, ',', '.') }} VND</td>
